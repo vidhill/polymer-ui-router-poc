@@ -1,0 +1,22 @@
+{
+  "name": "polymer-ui-router-poc",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "David Hill <d@vidhill.com> (https://github.com/vidhill/)"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/vidhill/polymer-ui-router-poc",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer-ui-router": "^0.1.6"
+  }
+}

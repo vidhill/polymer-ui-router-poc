@@ -1,0 +1,23 @@
+{
+  "name": "polymer-ui-router-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidhill/polymer-ui-router-poc.git"
+  },
+  "keywords": [],
+  "author": "David Hill <d@vidhill.com> (https://github.com/vidhill/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vidhill/polymer-ui-router-poc/issues"
+  },
+  "homepage": "https://github.com/vidhill/polymer-ui-router-poc#readme",
+  "devDependencies": {
+    "polymer-cli": "1.5.7"
+  }
+}
