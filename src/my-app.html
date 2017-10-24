@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/polymer-ui-router/uirouter-router.html">
+<link rel="import" href="../../bower_components/polymer-ui-router/uirouter-uiview.html">
+
+<link rel="import" href="cats.html">
+
+<dom-module id="my-app">
+  <template>
+
+    <uirouter-router
+      id="ui-router"
+      location-plugin="[[locationPlugin]]"
+      states="[[routerStates]]" debug-tracing auto-start
+      init-callback="[[initCallback]]"
+      on-uirouter-success="handleSuccess">
+    </uirouter-router>
+
+    <p>Current state: [[currentState]]</p>
+    <p>Params: [[paramsJson]]</p>
+
+    <uirouter-uiview></uirouter-uiview>
+
+  </template>
+
+    <script>
+      Polymer({
+        is: 'my-app',
+        properties: {
+          routerStates: {
+            type: Array,
+            value: [{
+              name: "cats_route",
+              url: "/cats",
+              component: "dh-cats"
+            },{
+              name: "dogs_route",
+              url: "/dogs",
+              component: "dh-dogs"
+            }]
+          }
+        },
+        ready: function(){
+          var routerCore = window['@uirouter/core'];
+          this.locationPlugin = routerCore.hashLocationPlugin;
+
+          this.initCallback = function (uiRouter) {
+            // console.log('Executing additional operations on router object');
+            // uiRouter.urlService.rules.otherwise('/cats');
+          }
+
+        },
+        handleSuccess: function (event) {
+          this.currentState = event.detail.transition.to().name;
+          this.paramsJson = JSON.stringify(event.detail.transition.params());
+        }
+      })
+    </script>
+
+
+</dom-module>
