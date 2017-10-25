@@ -22,7 +22,6 @@
     </uirouter-router>
 
     <p>Current state: [[currentState]]</p>
-    <p>Params: [[paramsJson]]</p>
 
     <ul>
       <uirouter-sref-active class="route-active">
@@ -67,7 +66,7 @@
         },
         handleSuccess: function (event) {
           this.currentState = event.detail.transition.to().name;
-          this.paramsJson = JSON.stringify(event.detail.transition.params());
+          // this.paramsJson = JSON.stringify(event.detail.transition.params());
         }
       })
     </script>

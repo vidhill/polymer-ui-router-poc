@@ -1,0 +1,23 @@
+<link rel="import" href="../../polymer/polymer.html">
+<dom-module id="resolve-comp">
+    <template>
+        <style>
+        </style>
+
+        <h1>resolve component</h1>
+
+        <p>Resolved `Person` Data</p>
+        <p>[[resolvedData]]</p>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'resolve-comp',
+            attached: function(){
+                // this.person is being set by `ui-view` from the resolve
+                // you can also access this via `uiRouterResolvedData` containing all the resolve keys
+                this.resolvedData = JSON.stringify(this.person);
+            }
+        });
+    </script>
+</dom-module>

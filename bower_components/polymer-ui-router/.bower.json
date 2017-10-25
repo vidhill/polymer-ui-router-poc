@@ -1,0 +1,44 @@
+{
+  "name": "polymer-ui-router",
+  "version": "0.1.6",
+  "license": "Apache-2.0",
+  "description": "Polymer element for UI-Router Core",
+  "main": [
+    "uirouter-router.html",
+    "uirouter-sref.html",
+    "uirouter-sref-active.html",
+    "uirouter-uiview.html"
+  ],
+  "authors": [
+    "Marcin Lulek"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "router",
+    "routing",
+    "url",
+    "routes",
+    "ui-router",
+    "ui-router-core"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.7 - 2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "homepage": "https://github.com/ergo/polymer-ui-router",
+  "_release": "0.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.6",
+    "commit": "0fc50b567556444214a69f36f375c2fd1b94978b"
+  },
+  "_source": "https://github.com/ergo/polymer-ui-router.git",
+  "_target": "^0.1.6",
+  "_originalSource": "polymer-ui-router"
+}
