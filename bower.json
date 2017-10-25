@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer-ui-router": "^0.1.6"
+    "polymer-ui-router": "^0.1.6",
+    "polymer": "1.11.0"
   }
 }
