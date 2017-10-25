@@ -1,23 +1,37 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
+
+
+<link rel="import" href="cats.html">
+<link rel="import" href="dogs.html">
+
+
 <link rel="import" href="../../bower_components/polymer-ui-router/uirouter-router.html">
 <link rel="import" href="../../bower_components/polymer-ui-router/uirouter-uiview.html">
 
-<link rel="import" href="cats.html">
 
 <dom-module id="my-app">
   <template>
 
     <uirouter-router
-      id="ui-router"
-      location-plugin="[[locationPlugin]]"
-      states="[[routerStates]]" debug-tracing auto-start
-      init-callback="[[initCallback]]"
-      on-uirouter-success="handleSuccess">
+            id="ui-router"
+            location-plugin="[[locationPlugin]]"
+            states="[[routerStates]]" debug-tracing auto-start
+            init-callback="[[initCallback]]"
+            on-uirouter-success="handleSuccess">
     </uirouter-router>
 
     <p>Current state: [[currentState]]</p>
     <p>Params: [[paramsJson]]</p>
+
+    <ul>
+      <uirouter-sref-active class="route-active">
+        <li><uirouter-sref state="cats_route">Cats</uirouter-sref></li>
+      </uirouter-sref-active>
+      <uirouter-sref-active>
+        <li><uirouter-sref state="dogs_route">Dogs</uirouter-sref></li>
+      </uirouter-sref-active>
+    </ul>
 
     <uirouter-uiview></uirouter-uiview>
 
@@ -30,14 +44,15 @@
           routerStates: {
             type: Array,
             value: [{
-              name: "cats_route",
-              url: "/cats",
-              component: "dh-cats"
-            },{
-              name: "dogs_route",
-              url: "/dogs",
-              component: "dh-dogs"
-            }]
+                name: "cats_route",
+                url: "/cats",
+                component: "dh-cats"
+              },{
+                name: "dogs_route",
+                url: "/dogs",
+                component: "dh-dogs"
+              }
+            ]
           }
         },
         ready: function(){
@@ -45,8 +60,8 @@
           this.locationPlugin = routerCore.hashLocationPlugin;
 
           this.initCallback = function (uiRouter) {
-            // console.log('Executing additional operations on router object');
-            // uiRouter.urlService.rules.otherwise('/cats');
+            console.log('Executing additional operations on router object');
+            uiRouter.urlService.rules.otherwise('/cats');
           }
 
         },
