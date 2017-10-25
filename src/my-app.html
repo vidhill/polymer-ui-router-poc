@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-
+<link rel="import" href="dogs-behaviour.html">
 
 <link rel="import" href="cats.html">
 <link rel="import" href="dogs.html">
@@ -33,25 +33,37 @@
       </uirouter-sref-active>
     </ul>
 
-    <uirouter-uiview></uirouter-uiview>
+    <uirouter-uiview component="dh-dogs" ></uirouter-uiview>
 
   </template>
 
     <script>
       Polymer({
         is: 'my-app',
+        behaviors: [dogBehaviour],
         properties: {
           routerStates: {
             type: Array,
             value: [{
-                name: "cats_route",
-                url: "/cats",
-                component: "dh-cats"
-              },{
                 name: "dogs_route",
                 url: "/dogs",
                 component: "dh-dogs"
+              },{
+                name: "cats_route",
+                url: "/cats",
+                component: "dh-cats"
               }
+/*
+              {
+                name: "dogs_route.terrier",
+                url: "/terrier",
+                component: "dh-terrier"
+              },{
+                name: "dogs_route.sheepdog",
+                url: "/sheepdog",
+                component: "dh-sheepdog"
+              }
+              */
             ]
           }
         },

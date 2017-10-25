@@ -19,12 +19,12 @@
         <li><uirouter-sref state="dogs_route.sheepdog">Sheepdog</uirouter-sref></li>
       </uirouter-sref-active>
     </ul>
-    
+    <!--
     <uirouter-router states="[[routerStates]]">
     </uirouter-router>
+    -->
+    <uirouter-uiview component="dh-terrier" ></uirouter-uiview>
 
-    <uirouter-uiview></uirouter-uiview>
-    
   </template>
 
     <script>
@@ -44,7 +44,7 @@
                 component: "dh-sheepdog"
               }
             ]
-          } 
+          }
         }
       });
 
