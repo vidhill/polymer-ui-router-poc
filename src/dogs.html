@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../bower_components/polymer-ui-router/uirouter-uiview.html">
 <link rel="import" href="../bower_components/polymer-ui-router/uirouter-sref-active.html">
 <link rel="import" href="../bower_components/polymer-ui-router/uirouter-sref.html">
 
@@ -19,18 +20,24 @@
         <li><uirouter-sref state="dogs_route.sheepdog">Sheepdog</uirouter-sref></li>
       </uirouter-sref-active>
     </ul>
-    <!--
-    <uirouter-router states="[[routerStates]]">
+    
+    <uirouter-router on-uirouter-success="handleSuccess">
     </uirouter-router>
-    -->
+    
+    
+    
     <uirouter-uiview></uirouter-uiview>
 
   </template>
 
     <script>
       Polymer({
-        is: 'dh-dogs'
-      });
+        is: 'dh-dogs',
+        handleSuccess: function (event) {
+          console.log(event.detail.transition.to())
+        }
+      }
+      );
 
     </script>
 

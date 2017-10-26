@@ -1,13 +1,13 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<link rel="import" href="dogs-behaviour.html">
-
 <link rel="import" href="cats.html">
 <link rel="import" href="dogs.html">
 
 
-<link rel="import" href="../../bower_components/polymer-ui-router/uirouter-router.html">
-<link rel="import" href="../../bower_components/polymer-ui-router/uirouter-uiview.html">
+<link rel="import" href="../bower_components/polymer-ui-router/uirouter-router.html">
+<link rel="import" href="../bower_components/polymer-ui-router/uirouter-uiview.html">
+<link rel="import" href="../bower_components/polymer-ui-router/uirouter-sref.html">
+<link rel="import" href="../bower_components/polymer-ui-router/uirouter-sref-active.html">
 
 
 <dom-module id="my-app">
@@ -30,6 +30,7 @@
       </uirouter-sref-active>
       <uirouter-sref-active>
         <li><uirouter-sref state="dogs_route">Dogs</uirouter-sref></li>
+        <li><a href="#/dogs">Dogs</a></li>
       </uirouter-sref-active>
     </ul>
 
@@ -40,20 +41,19 @@
     <script>
       Polymer({
         is: 'my-app',
-        behaviors: [dogBehaviour],
         properties: {
           routerStates: {
             type: Array,
             value: [{
                 name: "dogs_route",
                 url: "/dogs",
-                component: "dh-dogs"
-              },{
+                component: "dh-dogs",
+                abstract: true
+            },{
                 name: "cats_route",
                 url: "/cats",
                 component: "dh-cats"
-              }
-/*
+              },
               {
                 name: "dogs_route.terrier",
                 url: "/terrier",
@@ -63,7 +63,7 @@
                 url: "/sheepdog",
                 component: "dh-sheepdog"
               }
-              */
+
             ]
           }
         },
@@ -72,7 +72,11 @@
           this.locationPlugin = routerCore.hashLocationPlugin;
 
           this.initCallback = function (uiRouter) {
-            console.log('Executing additional operations on router object');
+            
+            // redirect dogs to default, terrier
+            uiRouter.urlService.rules.when('/dogs', '/dogs/terrier');
+            
+            // fallback route
             uiRouter.urlService.rules.otherwise('/cats');
           }
 
